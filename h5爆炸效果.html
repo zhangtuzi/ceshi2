@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+<title>wizardpisces模拟的爆炸咯</title>
+
+</head>
+
+<body>
+<canvas id="myCanvas" width="1000" height="1000" style="border:1px inset green">
+
+<p>
+Your browserdoes not support the canvas element!
+</p>
+</canvas>
+<script type="text/javascript">
+
+
+var c=document.getElementById("myCanvas");
+var ctx=context=c.getContext("2d");
+var x=0,inc=1;
+var change=function(){
+     context.save();
+// 清除画布
+   ctx.clearRect(0,0,400,400);
+   // 填充背景色
+   ctx.fillStyle = 'blue';
+   ctx.fillRect(0,0,400,400);
+    context.translate(200,200);
+
+    for (var i=1;i<6;i++){
+
+    context.save();
+
+     context.fillStyle =
+    'rgb('+(51*i)+','+(255-51*i)+',255)';
+      for (var j=0;j<i*6;j++){
+    context.rotate(Math.PI*2/(i*6));
+
+     context.beginPath();
+    context.arc(0,i*x,5,0,Math.PI*2,true);
+     context.fill();
+
+     }
+
+
+
+     context.restore();
+
+    }
+
+     context.restore();
+     if(x<30 && inc==1) x++;
+     else {x--;inc= x==0 ? 1 : 0;}
+    setTimeout(change,40);
+};
+
+
+change();
+
+
+</script>
+
+
+</body>
+</html>

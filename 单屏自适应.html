@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>单屏自适应</title>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/top.js"></script>
+    <style media="screen">
+      *{
+        margin:0;
+        padding:0;
+      }
+      .warpAll{
+        width:414px;
+        background:#eee;
+        position: absolute;
+        top:0;
+        left:0;
+      }
+      .top{
+        width:100%;
+        height:1rem;
+        background:#fc5001;
+      }
+      .top li{
+        list-style: none;
+        width:20%;
+        float:left;
+        font-size:0.4rem;
+        line-height: 1rem;
+        text-align: center;
+      }
+      .top li:nth-child(even){
+        background:#fff;
+      }
+      .nr{
+        position: relative;
+        font-size:0.3rem;
+      }
+      .nr1{
+        width:100%;
+        padding:0.1rem 0;
+        background:yellow;
+      }
+      .bottom_btn{
+        position: absolute;
+        width:100%;
+        height:1rem;
+        left:0;
+        bottom:0;
+      }
+      .bottom_btn li{
+        list-style: none;
+        float:left;
+        width:20%;
+        line-height: 1rem;
+        font-size:0.2rem;
+        color:#fff;
+        background: #000;
+      }
+    </style>
+  </head>
+  <body>
+      <div class="warpAll">
+
+        <ul class="top">
+          <li>top1</li>
+          <li>top2</li>
+          <li>top3</li>
+          <li>top4</li>
+          <li>top5</li>
+        </ul>
+        <div class="nr">
+            <div class="nr1">
+              我也有同样的需求：页面上有一个粘贴按钮。当我复制了一些文本，
+              可以通过Ctrl+v进行粘贴，也需要通过点击页面上的粘贴按钮，来进行粘贴。
+              @王雯君 @白树请问你的问题是如何解决的？...
+            </div>
+            <div class="nr1">
+              我也有同样的需求：页面上有一个粘贴按钮。当我复制了一些文本，
+              可以通过Ctrl+v进行粘贴，也需要通过点击页面上的粘贴按钮，来进行粘贴。
+              @王雯君 @白树请问你的问题是如何解决的？...
+            </div>
+            <div class="nr1">
+              我也有同样的需求：页面上有一个粘贴按钮。当我复制了一些文本，
+              可以通过Ctrl+v进行粘贴，也需要通过点击页面上的粘贴按钮，来进行粘贴。
+              @王雯君 @白树请问你的问题是如何解决的？...
+            </div>
+            <div class="nr1">
+              我也有同样的需求：页面上有一个粘贴按钮。当我复制了一些文本，
+              可以通过Ctrl+v进行粘贴，也需要通过点击页面上的粘贴按钮，来进行粘贴。
+              @王雯君 @白树请问你的问题是如何解决的？...
+            </div>
+            <div class="nr1">
+              我也有同样的需求：页面上有一个粘贴按钮。当我复制了一些文本，
+              可以通过Ctrl+v进行粘贴，也需要通过点击页面上的粘贴按钮，来进行粘贴。
+              @王雯君 @白树请问你的问题是如何解决的？...
+            </div>
+            <ul class="bottom_btn">
+              <li>btn1</li>
+              <li>btn2</li>
+              <li>btn3</li>
+              <li>btn4</li>
+              <li>btn5</li>
+            </ul>
+        </div>
+
+
+      </div>
+
+
+      <script type="text/javascript">
+        $(function(){
+          var win_height=$(window).height();
+          var win_width=$(window).width();
+          var warpAll_width=$(".warpAll").width();
+          var warpAll_height=$(".warpAll").height();
+          var scale=win_width/414;
+          $(".warpAll").height(win_height);
+          $(".warpAll").css({"transform":"scale("+scale+")","left":-(warpAll_width*(1-scale))/2,"top":-(warpAll_height*(1-scale))/2});
+
+          
+
+        })
+      </script>
+  </body>
+</html>

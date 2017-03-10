@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>饼状图</title>
+    <meta name='viewport' content="width=device-width,initial-scale=1.0,minimum-scale=1,maximum-scale=1.0,user-scalable=0" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/top.js"></script> -->
+<style media="screen">
+*{
+  margin:0;
+  padding:0;
+}
+  canvas{
+    width:100%;
+    position: absolute;
+    top:0;
+    left:0;
+  }
+</style>
+  </head>
+  <body>
+    <canvas id="canvas" width="1000" height="400"></canvas>
+    <script type="text/javascript">
+      // var bg=document.getElementById("canvas");
+      // var cxt=bg.getContext("2d");
+      // cxt.beginPath();
+      // cxt.strokeStyle="red";
+      // cxt.fillStyle="green";
+      // cxt.moveTo(150,150);
+      // cxt.arc(150,150,50,-0.5*Math.PI,0,false);
+      // cxt.closePath();
+      // cxt.fill();
+      // cxt.stroke();
+      // var i=0;
+
+      var bg=document.getElementById("canvas");
+      var cxt=bg.getContext("2d");
+      cxt.beginPath();
+      cxt.strokeStyle="red";
+      cxt.fillStyle="green";
+      cxt.moveTo(600,600);
+      cxt.arc(500,200,150,-0.5*Math.PI,0,false);
+      cxt.closePath();
+      cxt.fill();
+      // cxt.stroke();
+
+      function bxign(start,end,color){
+        cxt.beginPath();
+        // cxt.strokeStyle="red";
+        cxt.fillStyle=color;
+        cxt.moveTo(600,600);
+        cxt.arc(500,200,150,-start*Math.PI,-end*Math.PI,true);
+        cxt.closePath();
+        cxt.fill();
+      }
+      bxign(-1.5,-1,"red");
+      // var img1=new Image();
+      // img1.src="img/fengche.jpg";
+      // img1.onload=function(){
+      //   var ow=img1.width;
+      //   var oh=img1.height;
+      //   cxt.drawImage(img1,100,100,100,100*oh/ow);
+      // }
+      var img2=new Image();
+      img2.src="img/girl.png";
+      img2.onload=function(){
+        cxt.drawImage(img2,0,0,324,387,100,100,100,387/3.24);
+      }
+
+      
+    </script>
+  </body>
+</html>

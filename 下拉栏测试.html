@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>下拉栏测试</title>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <style media="screen">
+    *{
+      margin: 0;
+      padding:0;
+    }
+
+      .btl_div{
+        width:150px;
+        height:200px;
+        border:1px solid red;
+        overflow: auto;
+
+      }
+      .btl{
+        position: relative;
+        width:100%;
+        min-height:50px;
+        max-height:200px;
+        overflow: auto;
+      }
+      .btl p{
+        position: absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:49px;
+        border-bottom: 1px solid gray;
+      }
+      .btl ul{
+        display:none;
+        margin-top:50px;
+      }
+      .btl li{
+        list-style: none;
+        width:100%;
+        height:49px;
+        border-bottom: 1px solid gray;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="btl_div">
+      <div class="btl" id="bt1">
+        <p>标题栏1</p>
+        <ul>
+          <li>标题详情1</li>
+          <li>标题详情1</li>
+          <li>标题详情1</li>
+          <li>标题详情1</li>
+          <li>标题详情1</li>
+          <li>标题详情1</li>
+        </ul>
+      </div>
+      <div class="btl">
+        <p>标题栏2</p>
+        <ul>
+          <li>标题详情2</li>
+          <li>标题详情2</li>
+          <li>标题详情2</li>
+          <li>标题详情2</li>
+        </ul>
+      </div>
+      <div class="btl">
+        <p>标题栏3</p>
+        <ul>
+          <li>标题详情3</li>
+          <li>标题详情3</li>
+          <li>标题详情3</li>
+          <li>标题详情3</li>
+        </ul>
+      </div>
+      <div class="btl">
+        <p>标题栏4</p>
+        <ul>
+          <li>标题详情4</li>
+          <li>标题详情4</li>
+          <li>标题详情4</li>
+          <li>标题详情4</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+    $(function(){
+      $(".btl").click(function(){
+        $(this).children('ul').toggle();
+      })
+    })
+  </script>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>火苗</title>
+  </head>
+  <body style="background:lightgreen;">
+    <canvas id="canvas" width="100" height="300"></canvas>
+    <script type="text/javascript">
+        var hm=document.getElementById("canvas");
+        var hm=hm.getContext("2d");
+
+          hm.beginPath();
+          hm.moveTo(20,150);
+          hm.quadraticCurveTo(20,20,100,150);
+          hm.stroke();
+          hm.closePath();
+
+
+
+
+
+
+
+
+
+
+
+          // hm.fillStyle="red";
+          // hm.arc(50,200,40,0,2*Math.PI);
+          // hm.fill();
+
+          // function draw(){
+          //   hm.clearRect(0,0,100,300);
+            // hm.beginPath();
+            // for(var i=100;i>0;){
+            //   hm.fillStyle="rgba(255,0,"+i+","+(100-i)/100+")";
+            //   i--;
+            //   hm.arc(50,i+50,0.4*i,0,Math.PI);
+            //   hm.fill();
+            // }
+            // hm.closePath();
+            // hm.beginPath();
+          //   for(var i=60;i>0;){
+          //
+          //     i--;
+          //     if(i<20){
+          //         var left=40+Math.random()*20;
+          //         hm.arc(left,i+50,0.08*i,0,Math.PI);
+          //         hm.fillStyle="rgba(255,100,"+i+","+(100-i)/100+")";
+          //     }else if(20<i&&i<40){
+          //       var left=30+Math.random()*20;
+          //       hm.arc(left,i+50,0.08*i,0,Math.PI);
+          //
+          //     }else{
+          //       hm.arc(50,i+50,0.4*i,0,Math.PI);
+          //       hm.fillStyle="rgba(255,100,"+i+","+(100-i)/100+")";
+          //     }
+          //
+          //     hm.fill();
+          //     hm.closePath();
+          //   }
+          // }
+          //  setInterval(draw,1000);
+    </script>
+  </body>
+</html>

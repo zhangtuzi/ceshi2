@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>画板</title>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+  </head>
+  <body>
+    <canvas id="huaban" width="400" height="400" style="border:1px solid #000;
+    position:absolute;top:0;left:0;"></canvas>
+    <div class="red" style="float:right;width:50px;height:20px;border:1px solid gray;clear:both;">红色</div>
+    <div class="green" style="float:right;width:50px;height:20px;border:1px solid gray;clear:both;">绿色</div>
+    <div class="blue" style="float:right;width:50px;height:20px;border:1px solid gray;clear:both;">蓝色</div>
+    <script type="text/javascript">
+      $(function(){
+        var color_st;
+        var hb=$("#huaban");
+        var hb_bg=hb[0].getContext("2d");
+        var flag=false;
+        hb.mousedown(function(e){
+          var startX=e.pageX;
+          var startY=e.pageY;
+          if(!flag){
+            hb_bg.beginPath();
+            hb_bg.strokeStyle=""+color_st+"";
+            hb_bg.moveTo(startX,startY);
+            flag=true;
+          }
+
+        })
+
+        hb.mousemove(function(e){
+          var endX=e.pageX;
+          var endY=e.pageY;
+          if(flag){
+              hb_bg.lineTo(endX,endY);
+              hb_bg.stroke();
+            }
+          })
+        hb.mouseup(function(){
+          flag=false;
+        })
+
+        $(".red,.blue,.green").click(function(){
+          color_st=$(this).attr("class");
+
+        })
+
+      })
+
+
+
+    </script>
+  </body>
+</html>

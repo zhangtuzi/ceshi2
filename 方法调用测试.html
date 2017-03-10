@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>方法调用测试</title>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <style media="screen">
+      div{
+        float:left;
+        margin:50px;
+      }
+    </style>
+  </head>
+  <body>
+      <div class="div1" style="width:100px;height:100px;background:red;"></div>
+      <div class="div2" style="width:100px;height:100px;background:red;"></div>
+      <div class="div3" style="width:100px;height:100px;background:red;"></div>
+      <script type="text/javascript">
+      function fish(name,color){
+        this.name=name;
+        this.color=color;
+      }
+      fish.prototype.live="water";
+      fish.prototype.price="20";
+      var fish1=new fish("fish1","red");
+      var fish2=new fish("fish2","blue");
+      console.log(fish1);
+      </script>
+  </body>
+</html>

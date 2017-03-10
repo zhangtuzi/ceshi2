@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>钟表</title>
+    <style media="screen">
+      #ceshi1{
+        background:#eee;
+      }
+    </style>
+  </head>
+  <body>
+      <canvas id="ceshi1" width="300" height="300"></canvas>
+      <script type="text/javascript">
+          window.onload=function(){
+            draw_bz();
+          }
+          var obj=document.getElementById("ceshi1");
+          var bg=obj.getContext("2d");
+          //绘制表盘
+          function bp(){
+            bg.beginPath();
+            bg.arc(150,150,100,0,2*Math.PI);
+            bg.lineWidth=2;
+            var grd=bg.createRadialGradient(150,150,5,150,150,100);
+            grd.addColorStop(0,"#777");
+            grd.addColorStop(0.5,"#333");
+            grd.addColorStop(1,"#eee");
+            bg.fillStyle=grd;
+            bg.fillRect(0,0,300,300);
+            bg.strokeStyle="#333";
+            bg.stroke();
+          }
+          //绘制表盘刻度
+          function kd(){
+            for(var i=0;i<360;){
+              i+=6;
+              var lg=100;
+              var lg1=90;
+              bg.beginPath();
+              bg.moveTo(150+lg1*Math.cos(change(i)),150+lg1*Math.sin(change(i)));
+              bg.lineTo(150+lg*Math.cos(change(i)),150+lg*Math.sin(change(i)));
+              bg.lineWidth=1;
+              if(i%30==0){
+                bg.lineWidth=5;
+              }
+              bg.strokeStyle="#333";
+              bg.stroke();
+            }
+          }
+          //绘制秒针函数
+          function draw_bz(){
+            var data_sec=new Date().getSeconds();//获取秒
+            var lg2=80;
+            bg.clearRect(0,0,300,300);
+            bp();
+            kd();
+            j=6*data_sec-90;
+            bg.beginPath();
+            bg.moveTo(150,150);
+            bg.lineTo(150+lg2*Math.cos(change(j)),150+lg2*Math.sin(change(j)));
+            bg.lineWidth=1;
+            bg.strokeStyle="#fc5001";
+            bg.stroke();
+            draw_bzs();//分针
+            draw_bzs1();//时针
+          }
+          function draw_bzs(){
+            var lg2=70;
+            var data_sec=new Date().getSeconds();//获取秒
+            var data_min=new Date().getMinutes();//获取分
+            var min=6*data_min+6*data_sec/60-90;
+            bg.beginPath();
+            bg.moveTo(150,150);
+            bg.lineTo(150+lg2*Math.cos(change(min)),150+lg2*Math.sin(change(min)));
+            bg.lineWidth=2;
+            bg.strokeStyle="#b11818";
+            bg.stroke();
+          }
+          function draw_bzs1(){
+            var lg2=50;
+            var data_hou=new Date().getHours();//获取时
+            var data_sec=new Date().getSeconds();//获取秒
+            var data_min=new Date().getMinutes();//获取分
+            var hou=30*data_hou-90+30*data_min/60+30*data_sec/3600;
+            bg.beginPath();
+            bg.moveTo(150,150);
+            bg.lineTo(150+lg2*Math.cos(change(hou)),150+lg2*Math.sin(change(hou)));
+            bg.lineWidth=3;
+            bg.strokeStyle="blue";
+            bg.stroke();
+          }
+          setInterval(draw_bz,1000);
+          // 角度转换为弧度
+          function change(deg){
+            return time= deg*Math.PI/180;
+          }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<title>Drawing sector</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<style>
+  #canvas{
+    background:#7cc888;
+  }
+</style>
+</head>
+<body>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script type="text/javascript">
+      var bg_w=document.getElementById('canvas');
+      bg=bg_w.getContext('2d');
+      function product(){
+        bg.clearRect(0,0,300,300);
+        bg.save();
+        bg.beginPath();
+        // var color=color_1();
+        // var color1=color_1();
+        //
+        // var yuan=bg.createRadialGradient(150,150,15,150,150,100);
+        // yuan.addColorStop(0,""+color+"");
+        // yuan.addColorStop(1,""+color1+"");
+        // console.log(color);
+        // bg.fillStyle=yuan;
+        var grd=bg.createRadialGradient(150,150,5,150,150,100);
+            grd.addColorStop(0,"#777");
+            grd.addColorStop(0.5,"#333");
+            grd.addColorStop(1,"#eee");
+bg.fillStyle=grd;
+
+        bg.stroke();
+        bg.restore();
+      }
+      function color_1(){
+        var color="#";
+        var a=["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
+        for(i=0;i<6;i++){
+          var num= parseInt(Math.random()*a.length);
+
+          color=color+a[num];
+        }
+        return color;
+      }
+      function scoo(){
+        var aaa= Math.random();
+        return aaa;
+        //console.log(Math.random());
+      }
+      setInterval(product,1000);
+
+
+    </script>
+</body>
+</html>

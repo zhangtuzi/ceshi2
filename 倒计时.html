@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>倒计时</title>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+  </head>
+  <body>
+    <div class="wrap">
+        <span id="day"></span>天<span id="h"></span>小时<span id="s"></span>分钟<span id="m"></span>秒
+    </div>
+
+
+
+      <script type="text/javascript">
+        $(function(){
+          test();
+          function test(){
+
+            //获取当前时间
+            var nowTime = new Date().getTime();
+            //设置结束时间
+            var endTime="2016/11/17 12:00:00";
+                endTime1=new Date(endTime).getTime();
+
+                var t = endTime1 - nowTime;
+
+                if(t<=0){
+                  alert('请重新输入');
+                   return false;
+                }
+                //天
+                var d = Math.floor(t/1000/60/60/24);
+                //时
+                var h = Math.floor(t/1000/60/60%24);
+                //分
+                var i = Math.floor(t/1000/60%60);
+                //秒
+                var s = Math.floor(t/1000%60);
+                document.getElementById('day').innerHTML = d;
+                document.getElementById('h').innerHTML = h;
+                document.getElementById('s').innerHTML = i;
+                document.getElementById('m').innerHTML = s;
+
+                setTimeout(test, 1000);
+          }
+        })
+      </script>
+  </body>
+</html>

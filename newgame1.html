@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+    <!-- <script src="js/jquery.mobile.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="css/jquery.mobile.min.css" media="screen" title="no title"> -->
+    <style media="screen">
+      .bg,.bg1,.bg2,.bg3{
+        width:100px;
+        height:100px;
+        background:#999;
+        position: absolute;
+      }
+      .bg1{
+        background: red;
+      }
+      .bg2{
+        background: green;
+      }
+      .bg3{
+        background: blue;
+      }
+
+      .li1{
+        float:left;
+        height:100px;
+        width:100px;
+        border:1px solid #000;
+      }
+    </style>
+
+
+  </head>
+  <body>
+    <div class="bg"></div>
+    <div class="bg1"></div>
+    <div class="bg2"></div>
+    <div class="bg3"></div>
+    <ul style="width:310px;">
+      <li class="li1"></li>
+    </ul>
+    <script type="text/javascript">
+      $(function(){
+        $(".bg,.bg1,.bg2,.bg3").mousedown(function(){
+          $(this).addClass("move");
+        }).mouseup(function(){
+          $(this).removeClass("move");
+        })
+        $(window).mousemove(function(e){
+          var x=e.pageX-50;
+          var y=e.pageY-50;
+          console.log("x="+x+",y="+y);
+          $(".move").css("top",y);
+          $(".move").css("left",x);
+        })
+      })
+    </script>
+  </body>
+</html>

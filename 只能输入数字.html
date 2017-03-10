@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>只能输入数字</title>
+  </head>
+  <body>
+      <input type="text" name="" id="number_input" value="">
+      <script type="text/javascript">
+        var number_input=document.getElementById("number_input");
+        number_input.onkeydown=function(e){
+          var keyCod=e.keyCode;
+          if(keyCod>47&&keyCod<58||keyCod==8){
+								return true;
+							}else{
+								return false;
+							}
+
+        }
+      </script>
+  </body>
+</html>
+wanglixia; chennan; liyongyong; luyanli; zhangbeiyun@sinovatech.com; wangshuyi
+抄送： anyakun; wangxia; huyaning; zhangdehua; lifangfang; lina@sinovatech.com;
+chenzhiliang; liushulin; lishaoxiong; haoyansong; songyunze

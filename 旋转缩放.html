@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>旋转缩放</title>
+    <style media="screen">
+    *{
+      margin:0;
+      padding:0;
+    }
+      /*#canvas{
+                width:100%;
+      }*/
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script type="text/javascript">
+      var myCanvas=document.getElementById('canvas');
+          hb=myCanvas.getContext('2d');
+          var kArray=[];
+          for(var i=80;i>0;){
+            kArray[i]={};
+            switch(i%3){
+              case 0:
+              kArray[i].color='red';
+              break;
+              case 1:
+              kArray[i].color='yellow';
+              case 2:
+              kArray[i].color='blue';
+            }
+            kArray[i].X=i-20;
+            kArray[i].Y=i-20;
+            kArray[i].sacle=10*i*Math.PI/180;
+            i--;
+          }
+          console.log(kArray[2]);
+          function wht(kArray){
+            for(var i=1;i<kArray.length;i++){
+              hb.save();
+              hb.fillStyle=kArray[i].color;
+              hb.translate(150,150);
+              hb.rotate(kArray[i].sacle);
+              hb.scale(i/80,i/80);
+              hb.fillRect(kArray[i].X,kArray[i].Y,20,20);
+              hb.restore();
+            }
+
+          }
+          setInterval(function(){
+            wht(kArray);
+
+          },200)
+          myCanvas.onclick=function(e){
+            alert('x='+getEventPosition(e).x+',y='+getEventPosition(e).y);
+          }
+          function getEventPosition(ev){
+            	var x, y;
+            	if (ev.layerX || ev.layerX == 0) {
+              	x = ev.layerX;
+              	y = ev.layerY;
+           	}else if (ev.offsetX || ev.offsetX == 0) { // Opera
+              	x = ev.offsetX;
+              	y = ev.offsetY;
+            	}
+            	return {x: x, y: y};
+          }
+    </script>
+  </body>
+</html>
