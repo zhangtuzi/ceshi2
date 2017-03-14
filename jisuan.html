@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>累加计算</title>
+    <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        $(".lj").click(function(){
+
+          var zong=parseInt($(".zong").text());
+          var fl=0;
+
+          for(var i=0;i<$(".lj").length;i++){
+           var chec=$(".lj").eq(i).prop("checked");
+           var fli=$(".lj").eq(i).data("num");
+            if(chec){
+              fl=fl+fli;
+            }
+          }
+          var yf=zong*fl/100;
+          $(".yf").text(yf);
+        })
+
+      })
+    </script>
+  </head>
+  <body>
+    <ul>
+      <li>总金额：<span class="zong">50000</span>元</li>
+      <li><span>看样X0.5%</span><input type="checkbox" class="lj" data-num="0.5" name="name" value=""></li>
+      <li><span>评估X0.5%</span><input type="checkbox" class="lj" data-num="0.5" name="name" value=""></li>
+      <li><span>评估X0.5%</span><input type="checkbox" class="lj" data-num="0.5" name="name" value=""></li>
+      <li>应付<span class="yf">0</span>元</li>
+    </ul>
+
+    <input type="text" name="" id="u" value="">
+    <input type="button" id="u_click" value="获取u的值">
+  </body>
+  <script type="text/javascript">
+    var u_click=document.getElementById("u_click");
+    u_click.onclick=function(){
+      var count=document.getElementById("u").value;
+      alert(count);
+    }
+
+  </script>
+</html>

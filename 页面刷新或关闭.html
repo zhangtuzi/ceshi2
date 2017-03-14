@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+　　　<head>
+  <meta charset="utf-8">
+　　　<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+　　　<title>onbeforeunload测试</title>
+　　　
+　　　</head>
+　　　<body onbeforeunload="checkLeave()">
+          <script>
+           if(sessionStorage.opened){
+             alert('窗口是刷新页面,不是新打开')
+           }else{
+               alert('窗口是新打开')
+               //如果获取到历史url,则重定向到历史地址
+               if(localStorage.history && localStorage.history != window.location.href ){
+                   window.location.replace(localStorage.history);
+               }
+           }
+           sessionStorage.setItem('opened','true');
+           localStorage.setItem('history',location.href);
+        </script>
+        
+
+　　　</body>
+　　　</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="gb2312">
+<title>画图</title>
+</head>
+
+<body style="background:#00ee50;">
+  <canvas id = "myCanvas" width = '500' height = '500' style="border:1px solid red;position:absolute;top:0;">Canvas画线技巧</canvas>
+  <div id="canvas_div" style="position:absolute;top:0;width:500px;height:500px;">
+    <img src="t2.png" id="img_1" style="width:50px;height:auto;position:absolute;top:20px;left:100px;" alt="" />
+  </div>
+<script>
+    var myCanvas = document.getElementById("myCanvas");
+    var context =  myCanvas.getContext("2d");
+
+    function wubianxing(zx_x,zx_y){
+      context.save();//保存状态
+      context.beginPath(zx_x,zx_y);
+      context.fillStyle ='rgba(255,255,255,0.3)';//填充红色，半透明
+      context.strokeStyle ='#fff';//填充绿色
+      context.lineWidth = 1;//设置线宽
+
+      //内部五边形
+      context.moveTo(zx_x+100*Math.cos(change(-18)),zx_y+100*Math.sin(change(-18)));
+      context.lineTo(zx_x+100*Math.cos(change(54)),zx_y+100*Math.sin(change(54)));
+      context.lineTo(zx_x+100*Math.cos(change(126)),zx_y+100*Math.sin(change(126)));
+      context.lineTo(zx_x+100*Math.cos(change(198)),zx_y+100*Math.sin(change(198)));
+      context.lineTo(zx_x+100*Math.cos(change(270)),zx_y+100*Math.sin(change(270)));
+      context.lineTo(zx_x+100*Math.cos(change(-18)),zx_y+100*Math.sin(change(-18)));
+      context.closePath();
+      context.stroke();
+      context.fill();
+
+      //外部五边形
+      context.beginPath();
+      context.strokeStyle="#fff";
+      context.lineWidth="1";
+      context.moveTo(zx_x+130*Math.cos(change(-18)),zx_y+130*Math.sin(change(-18)));
+      context.lineTo(zx_x+130*Math.cos(change(54)),zx_y+130*Math.sin(change(54)));
+      context.lineTo(zx_x+130*Math.cos(change(126)),zx_y+130*Math.sin(change(126)));
+      context.lineTo(zx_x+130*Math.cos(change(198)),zx_y+130*Math.sin(change(198)));
+      context.lineTo(zx_x+130*Math.cos(change(270)),zx_y+130*Math.sin(change(270)));
+      context.lineTo(zx_x+130*Math.cos(change(-18)),zx_y+130*Math.sin(change(-18)));
+      context.closePath();
+      context.stroke();
+
+
+
+      // 中心连线
+      zjhx(zx_x+130*Math.cos(change(54)),zx_y+130*Math.sin(change(54)));
+      zjhx(zx_x+130*Math.cos(change(126)),zx_y+130*Math.sin(change(126)));
+      zjhx(zx_x+130*Math.cos(change(198)),zx_y+130*Math.sin(change(198)));
+      zjhx(zx_x+130*Math.cos(change(270)),zx_y+130*Math.sin(change(270)));
+      zjhx(zx_x+130*Math.cos(change(-18)),zx_y+130*Math.sin(change(-18)));
+
+      function zjhx(line_x,line_y){
+        context.beginPath();
+        context.strokeStyle="#fff";
+        context.lineWidth="1";
+        context.moveTo(zx_x,zx_y);
+        context.lineTo(line_x,line_y);
+        context.closePath();
+        context.stroke();
+      }
+
+      //获取点击canvas坐标
+
+      var img_1=document.getElementById("img_1");
+
+      img_1.addEventListener('click', function(ev){
+        var x, y;
+        if (ev.layerX || ev.layerX == 0) {
+          x = ev.layerX;
+          y = ev.layerY;
+        }else if (ev.offsetX || ev.offsetX == 0) { // Opera
+          x = ev.offsetX;
+          y = ev.offsetY;
+        }
+        console.log(x);
+        //  if(x>100&&x<120&&y>20&&y<30){
+        //    alert(1);
+        //  }
+        alert(1);
+  		}, false);
+
+
+    }
+
+    wubianxing(250,250);
+
+
+
+
+
+
+
+
+
+
+
+      // 角度转换为弧度
+     function change(deg){
+       var time= deg*Math.PI/180;
+       return time;
+     }
+
+
+
+
+     var myCanvas_div = document.getElementById("canvas_div");
+     myCanvas_div.onclick=function(){
+       window.location.href="new_cehsi1.html";
+     }
+
+</script>
+</body>
+</html>

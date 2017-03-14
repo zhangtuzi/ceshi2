@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+  </head>
+  <body>
+    <input type="number" name="name" class="inputmoney" value="">
+    <div id='abc' class='ceshidiv' name='abc' title='ldsafjl' style='width:100px;height:100px;background:red;'></div>
+    <input type="text" name="aaa" id="abcd" value="">
+    <script type="text/javascript">
+      $(function(){
+        $(".inputmoney").keyup(function () {
+            var reg = $(this).val().match(/\d+\.?\d{0,2}/);
+            var txt = '';
+            if (reg != null) {
+                txt = reg[0];
+            }
+            $(this).val(txt);
+        }).change(function () {
+            $(this).keypress();
+            var v = $(this).val();
+            if (/\.$/.test(v))
+            {
+                $(this).val(v.substr(0, v.length - 1));
+            }
+        });
+      })
+
+  var abc=document.getElementById('abc');
+var abcd=document.getElementById('abcd');
+ abc.name = 'ddd';
+  // abc.style.width='1000px';
+  // abc.style.height='300px';
+  // abc.style.background="#fc5f03";
+  // abc.style.opacity='0.3';
+  // abc.style['margin-left']='100px';
+//  alert(abc.offsetTop);
+abcd.onclick=function(){
+  console.log(abcd.name);
+  //alert(abcd.hasOwnProperty('name'));
+}
+    </script>
+  </body>
+</html>
